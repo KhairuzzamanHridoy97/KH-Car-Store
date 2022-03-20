@@ -25,7 +25,7 @@ const Product = ({product}) => {
           <Typography variant="body2" sx={{ my:1 }} color="text.secondary">
            {description}
             </Typography>
-          <Typography variant="body2" sx={{ my:1 }} className="text-primary" >
+          <Typography variant="body2" sx={{ my:1 }} className="text-danger" >
             Price : {price}
             </Typography>
   

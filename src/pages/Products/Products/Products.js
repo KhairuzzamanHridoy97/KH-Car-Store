@@ -22,16 +22,16 @@ const Products = () => {
     return (
         <Box sx={{ flexGrow: 1 }}>
       <Container className="mb-3" >
-        <Typography variant="h6" sx={{ fontWeight: 'bold',my:1 }} className="text-danger" component="div">
+        <Typography variant="h6" sx={{ fontWeight: 'bold',my:3 }} className="text-danger" component="div">
           OUR PRODUCTS
         </Typography>
-         <Typography variant="h6" sx={{ fontWeight: 'bold',my:1  }} className="text-warning" component="div">
+         <Typography variant="h6" sx={{ fontWeight: 'bold',mb:3  }} className="text-success" component="div">
           KH-STORE IS THE BEST CAR SHOP IN THIS TOWN
         </Typography>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {
                 products.slice(0, 6).map(product=> <Product
-                    key={product._id}
+                    key={product.id}
                     product={product}
                 ></Product>)
             }
