@@ -17,8 +17,10 @@ const Banner = () => {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    <h2>WELLCOME TO CAR STORE</h2>
+      <p>Find Your Favourite Car In Our Store</p>
+     <button className='btn btn-danger m-2'>Learn More</button> 
+     <button className='btn btn-outline-info'>Getting Started</button> 
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -29,8 +31,10 @@ const Banner = () => {
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <h2>BEST STORE IN THIS TOWN</h2>
+      <p>The Best Place To Buy A Car Of Your Choice </p>
+      <button className='btn btn-danger m-2'>Learn More</button> 
+     <button className='btn btn-outline-info'>Getting Started</button> 
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -41,8 +45,10 @@ const Banner = () => {
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h2>KH CAR STORE AT YOUR SERVICE</h2>
+      <p>You Can Buy The Latest Car In Our Store.</p>
+      <button className='btn btn-danger m-2'>Learn More</button> 
+     <button className='btn btn-outline-info'>Getting Started</button>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
