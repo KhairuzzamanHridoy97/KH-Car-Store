@@ -19,7 +19,7 @@ const Banner = () => {
     <Carousel.Caption>
     <h2>WELLCOME TO CAR STORE</h2>
       <p>Find Your Favourite Car In Our Store</p>
-     <button className='btn btn-danger m-2'>Learn More</button> 
+     <button className='btn btn-outline-danger text-white m-2'>Learn More</button> 
      <button className='btn btn-outline-info'>Getting Started</button> 
     </Carousel.Caption>
   </Carousel.Item>
