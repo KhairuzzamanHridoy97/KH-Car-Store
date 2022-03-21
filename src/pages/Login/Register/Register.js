@@ -5,6 +5,10 @@ import login from '../../../images/convert png/toyato3.png'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const handleRegister = e=>{
+        alert('Regisrered')
+        e.preventDefault();
+    }
     return (
         <>
             {/* <Navigation></Navigation> */}
@@ -15,7 +19,7 @@ const Login = () => {
                  <Typography sx={{ fontWeight: 600 }} variant="h5" gutterBottom>
                            Create Your Account
                  </Typography>
-                 <form>
+                 <form onSubmit={handleRegister}>
                  <TextField 
                     sx={{width:'75%',m:1}}
                     id="standard-basic" 
@@ -48,7 +52,8 @@ const Login = () => {
                     type='password'
                     name='password2'
                  />
-                 <Button  sx={{width:'75%',m:1}} variant='contained'>Register</Button>
+                 <Button type='submit' sx={{width:'75%',m:1}} variant='contained'>Register</Button>
+
                  <Link to='/login' style={{textDecoration:"none"}}>
                      <Button  sx={{width:'75%',m:1}} variant='text'> Are Your Registered! So Login Here </Button>
                  </Link>

@@ -1,7 +1,8 @@
 .latestOffer-Card{
     /* width: 100px;
   height: 100px; */
-  transition: width 4s, height 4s;
+  transition: width 4s 
+   /* height 4s; */
 }
 
 .latestOffer-Card:hover{
