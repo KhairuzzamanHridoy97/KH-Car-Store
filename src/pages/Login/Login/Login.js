@@ -1,4 +1,4 @@
-import { Button, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import Navigation from '../../Shared/Navigation/Navigation';
 import login from '../../../images/convert png/toyato3.png'
@@ -7,7 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
     const [loginData,setLoginData]= useState({});
-    const { loginUser} = useAuth()
+    const { user,authError,isLoading,loginUser} = useAuth()
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -28,7 +28,7 @@ const Login = () => {
     }
     return (
         <>
-            {/* <Navigation></Navigation> */}
+            <Navigation></Navigation>
             <Container>
             <Grid container spacing={2}>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
@@ -60,6 +60,9 @@ const Login = () => {
                  <Link style={{textDecoration:"none"}} to='/register'>
                       <Button  sx={{width:'75%',m:1}} variant='text'>Create Your Account</Button>
                  </Link>
+                 {isLoading && <CircularProgress></CircularProgress>}
+                 {user?.email && <Alert severity='success'>User Logged In </Alert>}
+                 {authError && <Alert severity='error'>{authError}</Alert>}
                  </form>
                 </Grid>
 
