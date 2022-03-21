@@ -28,10 +28,8 @@ const Product = ({product}) => {
           <Typography variant="body2" sx={{ my:1 }} className="text-danger" >
             Price : {price}
             </Typography>
-  
-            {/* <Link to={`/purchase/${_id}`}>  */}
+           
              <Button variant="contained" className=""  sx={{ my:1 }} >Purchase</Button> 
-             {/* </Link> */}
             
         </CardContent>
           </Card>
