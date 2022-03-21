@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     return (
         <>
-            <Navigation></Navigation>
+            {/* <Navigation></Navigation> */}
             <Container>
             <Grid container spacing={2}>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
@@ -33,7 +33,7 @@ const Login = () => {
                     type='password'
                  />
                  <Button  sx={{width:'75%',m:1}} variant='contained'>Login</Button>
-                 <Link to='/register'>
+                 <Link style={{textDecoration:"none"}} to='/register'>
                       <Button  sx={{width:'75%',m:1}} variant='text'>Create Your Account</Button>
                  </Link>
                  </form>
