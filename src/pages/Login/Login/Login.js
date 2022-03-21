@@ -1,11 +1,28 @@
 import { Button, Container, Grid, TextField, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from '../../Shared/Navigation/Navigation';
 import login from '../../../images/convert png/toyato3.png'
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
+    const [loginData,setLoginData]= useState({});
+    const { loginUser} = useAuth()
+
+    const handleOnChange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData }
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+        // console.log(field, value);
+
+    };
+
+   
+
     const handleLoginSubmit =(e)=>{
+        loginUser(loginData.email, loginData.password);
         alert('Login Done')
         e.preventDefault()
     }
@@ -25,14 +42,16 @@ const Login = () => {
                     id="standard-basic" 
                     label="Your Email" 
                     variant="standard"
-                    name='email' 
+                    onChange={handleOnChange} 
+                    name='email'
                     type="email"
                  />
                  <TextField 
                     sx={{width:'75%',m:1}}
                     id="standard-basic" 
                     label="Your Password" 
-                    variant="standard" 
+                    variant="standard"
+                    onChange={handleOnChange}  
                     name='password'
                     type='password'
                  />

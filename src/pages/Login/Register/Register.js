@@ -1,12 +1,30 @@
-import { Button, Container, Grid, TextField, Typography } from '@mui/material';
-import React from 'react';
+import { Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import React, { useState } from 'react';
 import Navigation from '../../Shared/Navigation/Navigation';
 import login from '../../../images/convert png/toyato3.png'
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
-const Login = () => {
+const Register = () => {
+    const [loginData,setLoginData]= useState({});
+
+    const {registerUser,isLoading} = useAuth()
+
+    const handleOnChange=(e)=>{
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = {...loginData};
+        newLoginData[field]= value;
+        setLoginData(newLoginData);
+    };
+
     const handleRegister = e=>{
-        alert('Regisrered')
+        if(loginData.password !== loginData.password2){
+
+            alert('Password Not Match')
+            return
+        }
+        registerUser(loginData.email,loginData.password)
         e.preventDefault();
     }
     return (
@@ -15,17 +33,17 @@ const Login = () => {
             <Container>
             <Grid container spacing={2}>
                 <Grid item sx={{ mt: 8 }} xs={12} md={6}>
-
                  <Typography sx={{ fontWeight: 600 }} variant="h5" gutterBottom>
                            Create Your Account
                  </Typography>
-                 <form onSubmit={handleRegister}>
+                 {!isLoading && <form onSubmit={handleRegister}>
                  <TextField 
                     sx={{width:'75%',m:1}}
                     id="standard-basic" 
                     label="Your Name" 
                     variant="standard"
-                    name='name' 
+                    name='name'
+                    onChange={handleOnChange} 
                     type="text"
                  />
                  <TextField 
@@ -33,7 +51,8 @@ const Login = () => {
                     id="standard-basic" 
                     label="Your Email" 
                     variant="standard"
-                    name='email' 
+                    name='email'
+                    onChange={handleOnChange}  
                     type="email"
                  />
                  <TextField 
@@ -41,7 +60,8 @@ const Login = () => {
                     id="standard-basic" 
                     label="Your Password" 
                     variant="standard"
-                    name='password' 
+                    name='password'
+                    onChange={handleOnChange}  
                     type="password"
                  />
                  <TextField 
@@ -49,15 +69,17 @@ const Login = () => {
                     id="standard-basic" 
                     label="Retype Password" 
                     variant="standard" 
-                    type='password'
                     name='password2'
+                    onChange={handleOnChange} 
+                    type='password'
                  />
                  <Button type='submit' sx={{width:'75%',m:1}} variant='contained'>Register</Button>
 
                  <Link to='/login' style={{textDecoration:"none"}}>
                      <Button  sx={{width:'75%',m:1}} variant='text'> Are Your Registered! So Login Here </Button>
                  </Link>
-                 </form>
+                 </form>}
+                 {isLoading && <CircularProgress></CircularProgress>}
                 </Grid>
 
                 <Grid items xs={12} md={6}>
@@ -73,4 +95,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
