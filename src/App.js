@@ -4,13 +4,13 @@ import Home from './pages/Home/Home/Home';
 import Explores from './pages/Explores/Explores/Explores';
 import Login from './pages/Login/Login/Login';
 import NotFound from './pages/NotFound/NotFound';
+import Register from './pages/Login/Register/Register';
 
 
 
 function App() {
   return (
-    <div className="App">
-    
+    <div className="App">    
       <Router>
         <Switch>
           <Route exact path='/'>
@@ -24,6 +24,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
           </Route>
           <Route path="*">
             <NotFound></NotFound>

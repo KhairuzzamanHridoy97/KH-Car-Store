@@ -2,7 +2,6 @@ import { Button, Container, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
 import Navigation from '../../Shared/Navigation/Navigation';
 import login from '../../../images/convert png/toyato3.png'
-import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -33,9 +32,6 @@ const Login = () => {
                     type='password'
                  />
                  <Button  sx={{width:'75%',m:1}} variant='contained'>Login</Button>
-                 <Link to='/register'>
-                      <Button  sx={{width:'75%',m:1}} variant='text'>Create Your Account</Button>
-                 </Link>
                  </form>
                 </Grid>
 
