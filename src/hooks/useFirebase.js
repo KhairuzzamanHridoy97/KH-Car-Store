@@ -1,5 +1,5 @@
 import initiaLizeFirebase from "../pages/Login/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword ,signOut,onAuthStateChanged} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword ,signOut,signInWithEmailAndPassword,onAuthStateChanged} from "firebase/auth";
 import {useEffect, useState} from 'react';
 
 initiaLizeFirebase();
@@ -32,9 +32,22 @@ const useFirebase =()=>{
           });
       };
 
+      const loginUser=(email,password)=>{
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
+      }
+
       //observe user state
       useEffect(()=>{
-       const  unsubscribe=  onAuthStateChanged(auth, (user) => {
+       const  unsubscribe= onAuthStateChanged(auth, (user) => {
             if (user) {
            
               const uid = user.uid;
@@ -50,6 +63,7 @@ const useFirebase =()=>{
       return {
           user,
           registerUser,
+          loginUser,
           logout,
       }
 }
