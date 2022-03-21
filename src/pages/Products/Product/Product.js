@@ -10,8 +10,7 @@ import { CardMedia, Grid } from '@mui/material';
 const Product = ({product}) => {
     const { title, description, price, img, } = product;
     return (
-        <Grid item xs={4} sm={4} md={4}>
-        
+        <Grid item xs={4} sm={4} md={4}>        
         <Card sx={{ minWidth: 275 }}>
             <CardMedia
               component="img"
