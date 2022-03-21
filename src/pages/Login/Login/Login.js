@@ -4,10 +4,15 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import login from '../../../images/convert png/toyato3.png'
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [loginData,setLoginData]= useState({});
-    const { user,authError,isLoading,loginUser} = useAuth()
+    const { user,authError,isLoading,loginUser} = useAuth();
+
+    const location = useLocation();
+    const history = useHistory();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -22,7 +27,7 @@ const Login = () => {
    
 
     const handleLoginSubmit =(e)=>{
-        loginUser(loginData.email, loginData.password);
+        loginUser(loginData.email, loginData.password,location,history);
         alert('Login Done')
         e.preventDefault()
     }
