@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from './pages/Home/Home/Home';
 import Explores from './pages/Explores/Explores/Explores';
 import Login from './pages/Login/Login/Login';
+import NotFound from './pages/NotFound/NotFound';
 
 
 
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login></Login>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
           </Route>
         </Switch>
       </Router>
