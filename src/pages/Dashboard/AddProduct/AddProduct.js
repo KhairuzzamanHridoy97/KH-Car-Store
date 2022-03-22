@@ -1,14 +1,23 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import './AddProduct.css';
 
 const AddProduct = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+        axios.post('http://localhost:5000/products',data)
+        .then(res=>{
+           if(res.data.insertId){
+               alert('Product Add Successfully')
+           }
+        })
+    };
 
     return (
         <div className='addProduct-Container'>
-            <h1 className="mt-5 text-center text-info">Add Products</h1>
+            <h1 className="mt-5 text-center text-danger">Add Products</h1>
             <div className="login-box w-25 m-auto mt-5">
                 <div className="product-box border border d-flex justify-content-center align-items-center">
                     <div className="login-form">
