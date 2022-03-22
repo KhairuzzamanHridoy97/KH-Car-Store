@@ -8,6 +8,12 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
+import {
+  Switch,
+  Route,
+  Link,
+  useRouteMatch
+} from "react-router-dom";
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -15,12 +21,15 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Button } from '@mui/material';
+import AddProduct from '../AddProduct/AddProduct';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -29,6 +38,9 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
+      <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
+                        <Button color="inherit">Add Product</Button>
+                    </Link>
       <Divider />
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -109,9 +121,13 @@ function Dashboard(props) {
       >
         <Toolbar />
         <Typography paragraph>
-          Content
+        
         </Typography>
-       
+       <Switch>
+              <Route path={`${path}/addproduct`}>
+                  <AddProduct></AddProduct>
+                </Route>
+       </Switch>
       </Box>
     </Box>
   );
