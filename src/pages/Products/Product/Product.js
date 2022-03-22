@@ -6,9 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardMedia, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Product = ({product}) => {
-    const { title, description, price, img, } = product;
+    const { title, description, price, img,id } = product;
     return (
         <Grid item xs={4} sm={4} md={4}>        
         <Card sx={{ minWidth: 275 }}>
@@ -27,8 +28,10 @@ const Product = ({product}) => {
           <Typography variant="body2" sx={{ my:1 }} className="text-danger" >
             Price : {price}
             </Typography>
-           
-             <Button variant="contained" className=""  sx={{ my:1 }} >Purchase</Button> 
+
+            <Link to={`/purchase/${id}`}>
+               <Button  variant="contained" sx={{ my:1 }} >Purchase</Button> 
+            </Link>           
             
         </CardContent>
           </Card>
