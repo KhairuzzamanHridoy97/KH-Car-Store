@@ -60,18 +60,20 @@ const useFirebase =()=>{
 
 
       // google sign in 
-      const googleSignIn =(location,hostory)=>{
-        setIsLoading(true)
+      const googleSignIn =(location,history)=>{
+          setIsLoading(true);
         signInWithPopup(auth, googleProvider)
-        .then((result) => {
-          const user = result.user;
-          setAuthError('')
-        }).catch((error) => {
-          setAuthError(error.message);
-        })
-        .finally(()=>setIsLoading(false));
-      }
-
+            .then((result) => {
+                
+                setAuthError('');
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
 
       //observe user state
       useEffect(()=>{

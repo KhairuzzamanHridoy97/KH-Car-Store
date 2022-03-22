@@ -23,6 +23,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import AddProduct from '../AddProduct/AddProduct';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const drawerWidth = 200;
 
@@ -38,9 +39,12 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
-                        <Button color="inherit">Add Product</Button>
-                    </Link>
+          <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
+              <Button color="inherit">Add Product</Button>
+          </Link>
+          <Link style={{ textDecoration: 'none' }} to={`${url}/manageProduct`}>
+              <Button color="inherit">Manage Product</Button>
+          </Link>
       <Divider />
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -127,6 +131,9 @@ function Dashboard(props) {
               <Route path={`${path}/addproduct`}>
                   <AddProduct></AddProduct>
                 </Route>
+              <Route path={`${path}/manageProduct`}>
+                  <ManageProducts></ManageProducts>
+              </Route>
        </Switch>
       </Box>
     </Box>
