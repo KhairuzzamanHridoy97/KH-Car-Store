@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import Purchase from './pages/Purchase/Purchase';
 
 
 
@@ -22,9 +23,12 @@ function App() {
           <Route path="/home">
             <Home></Home>
           </Route>
-          <PrivateRoute path="/explores">
+          <Route path="/explores">
             <Explores></Explores>
-          </PrivateRoute>
+          </Route>
+          <Route path="/explores">
+            <Purchase></Purchase>
+          </Route>
           <Route path="/login">
             <Login></Login>
           </Route>
