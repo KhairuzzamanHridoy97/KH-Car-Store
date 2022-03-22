@@ -26,7 +26,7 @@ const Product = ({product}) => {
            {description}
             </Typography>
           <Typography variant="body2" sx={{ my:1 }} className="text-danger" >
-            Price : {price}
+            Price : {price} USD
             </Typography>
 
             <Link to={`/purchase/${id}`}>

@@ -4,13 +4,14 @@ import { useForm } from "react-hook-form";
 import './AddProduct.css';
 
 const AddProduct = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch,reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
         axios.post('http://localhost:5000/products',data)
         .then(res=>{
            if(res.data.insertId){
-               alert('Product Add Successfully')
+               alert('Product Add Successfully');
+            //    reset();
            }
         })
     };
