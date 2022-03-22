@@ -8,6 +8,7 @@ import Register from './pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Purchase from './pages/Purchase/Purchase';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 
 
 
@@ -26,6 +27,9 @@ function App() {
           <Route path="/explores">
             <Explores></Explores>
           </Route>
+          <PrivateRoute path="/dashboard">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
           <Route path="/purchase/:productId">
             <Purchase></Purchase>
           </Route>
