@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [loginData,setLoginData]= useState({});
-    const { user,authError,isLoading,loginUser} = useAuth();
+    const { user,authError,isLoading,googleSignIn,loginUser} = useAuth();
 
     const location = useLocation();
     const history = useHistory();
@@ -30,7 +30,12 @@ const Login = () => {
         loginUser(loginData.email, loginData.password,location,history);
         alert('Login Done')
         e.preventDefault()
+    };
+
+    const handleGoogleSignIn =()=>{
+        googleSignIn(location,history)
     }
+
     return (
         <>
             <Navigation></Navigation>
@@ -69,6 +74,8 @@ const Login = () => {
                  {user?.email && <Alert severity='success'>User Logged In </Alert>}
                  {authError && <Alert severity='error'>{authError}</Alert>}
                  </form>
+                 <p>-- -- -- -- --</p>
+                 <Button  onClick={handleGoogleSignIn}  variant='contained'>Google Signin</Button>
                 </Grid>
 
                 <Grid items xs={12} md={6}>
