@@ -52,7 +52,7 @@ const Login = () => {
                     id="standard-basic" 
                     label="Your Email" 
                     variant="standard"
-                    onChange={handleOnChange} 
+                    onBlur={handleOnChange} 
                     name='email'
                     type="email"
                  />
@@ -61,7 +61,7 @@ const Login = () => {
                     id="standard-basic" 
                     label="Your Password" 
                     variant="standard"
-                    onChange={handleOnChange}  
+                    onBlur={handleOnChange}  
                     name='password'
                     type='password'
                  />

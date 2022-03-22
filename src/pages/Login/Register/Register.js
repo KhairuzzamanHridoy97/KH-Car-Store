@@ -4,13 +4,16 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import login from '../../../images/convert png/toyato3.png'
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
     const [loginData,setLoginData]= useState({});
 
+    const history = useHistory();
+
     const {user, registerUser,isLoading,authError} = useAuth();
 
-    const handleOnChange=(e)=>{
+    const handleOnBlur=(e)=>{
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = {...loginData};
@@ -24,7 +27,7 @@ const Register = () => {
             alert('Password Not Match')
             return
         }
-        registerUser(loginData.email,loginData.password)
+        registerUser(loginData.email,loginData.password,loginData.name ,history)
         e.preventDefault();
     }
     return (
@@ -43,7 +46,7 @@ const Register = () => {
                     label="Your Name" 
                     variant="standard"
                     name='name'
-                    onChange={handleOnChange} 
+                    onBlur={handleOnBlur} 
                     type="text"
                  />
                  <TextField 
@@ -52,7 +55,7 @@ const Register = () => {
                     label="Your Email" 
                     variant="standard"
                     name='email'
-                    onChange={handleOnChange}  
+                    onBlur={handleOnBlur}  
                     type="email"
                  />
                  <TextField 
@@ -61,7 +64,7 @@ const Register = () => {
                     label="Your Password" 
                     variant="standard"
                     name='password'
-                    onChange={handleOnChange}  
+                    onBlur={handleOnBlur}  
                     type="password"
                  />
                  <TextField 
@@ -70,7 +73,7 @@ const Register = () => {
                     label="Retype Password" 
                     variant="standard" 
                     name='password2'
-                    onChange={handleOnChange} 
+                    onBlur={handleOnBlur} 
                     type='password'
                  />
                  <Button type='submit' sx={{width:'75%',m:1}} variant='contained'>Register</Button>
