@@ -30,8 +30,9 @@ const Products = () => {
         </Typography>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {
-                products.slice(0, 6).map(product=> <Product
-                    key={product.id}
+                products.slice(0, 6).map(product=> 
+                <Product
+                    key={product._id}
                     product={product}
                 ></Product>)
             }

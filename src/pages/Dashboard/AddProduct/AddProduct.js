@@ -5,16 +5,18 @@ import './AddProduct.css';
 
 const AddProduct = () => {
     const { register, handleSubmit, watch,reset, formState: { errors } } = useForm();
+
     const onSubmit = data => {
-        console.log(data)
-        axios.post('http://localhost:5000/products',data)
+        console.log(data);  
+        axios.post('http://localhost:5000/products',data) 
         .then(res=>{
-           if(res.data.insertId){
-               alert('Product Add Successfully');
-            //    reset();
-           }
+            if(res.data.insertedId){
+                alert('Product Added Successfully');
+                reset();
+            }
+            console.log(res);
         })
-    };
+    }
 
     return (
         <div className='addProduct-Container'>
@@ -24,7 +26,7 @@ const AddProduct = () => {
                     <div className="login-form">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input
-                                {...register("name", { required: true })}
+                                {...register("title", { required: true })}
                                 placeholder="Product Name"
                                 className="p-2 m-2 w-100"
                             />

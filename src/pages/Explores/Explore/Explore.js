@@ -8,8 +8,8 @@ import Typography from '@mui/material/Typography';
 import { CardMedia, Container, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const Explore = ({car}) => {
-    const{title,img,description,price,id}=car;
+const Explore = ({product}) => {
+    const{title,img,description,price,_id}=product;
     return (
         <Grid item xs={4} sm={4} md={4}>        
         <Card sx={{ minWidth: 275 }}>
@@ -28,7 +28,7 @@ const Explore = ({car}) => {
           <Typography variant="body2" sx={{ my:1 }} className="text-danger" >
             Price : {price} USD
             </Typography>
-           <Link to={`/purchase/${id}`}>
+           <Link to={`/purchase/${_id}`}>
              <Button variant="contained" className=""  sx={{ my:1 }} >Purchase</Button> 
            </Link>
             
