@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 
 const ManageProducts = () => {
     const [products,setProducts] = useState([])
@@ -25,16 +26,46 @@ const ManageProducts = () => {
         })
     }
     return (
-        <div>
-            <h2>Manage Products</h2>
-            {
-                products.map(product=> <div key={product._id}>
-                    <h5>{product.title}</h5>
-                    <button onClick={()=>handleDelete(product._id)} className='btn btn-danger'>Delete</button>
-                </div> )
-            }
+        <div className='myOrder-section'>
+            <h1 className='text-danger'>Manage Products</h1>
+            <Table bordered hover>
+                <thead>
+                    <tr>
+                        <th>Product No</th>
+                        <th>Products Name</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                {products?.map((product, index) => (
+                    <tbody>
+                        <tr>
+                            <td>{index + 1}</td>
+                            <td>{product?.title}</td>
+                            <td>{product?.price}</td>
+                            <td><img style={{ height: '50px', width: '50px' }} src={product?.img} alt='' /></td>
+                            <button onClick={() => handleDelete(product?._id)} className="btn bg-danger p-2 m-1">Delete</button>
+                        </tr>
+                    </tbody>
+                ))}
+            </Table>
         </div>
     );
 };
 
 export default ManageProducts;
+
+        // <div>
+        // </div>
+
+
+
+
+
+{/* <h2>Manage Products</h2>
+{
+    products.map(product=> <div key={product._id}>
+        <h5>{product.title}</h5>
+        <button onClick={()=>handleDelete(product._id)} className='btn btn-danger'>Delete</button>
+    </div> )
+} */}
