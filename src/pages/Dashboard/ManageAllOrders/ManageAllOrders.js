@@ -18,7 +18,6 @@ const ManageAllOrders = () => {
     },[]);
 
     // deleteOrder
-
     const handleDeleteAllOrder = (id) => {
         console.log(id);
         const proceed = window.confirm("Are you sure, you want to delete?");
@@ -51,9 +50,6 @@ const ManageAllOrders = () => {
             <TableCell align="right">Product Name</TableCell>
             <TableCell align="right">Product Price</TableCell>
             <TableCell align="right">Action</TableCell>
-            {/* <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>

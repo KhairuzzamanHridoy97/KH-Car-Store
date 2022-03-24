@@ -19,11 +19,10 @@ const useFirebase =()=>{
             .then((userCredential) => {
                 setAuthError('');
                 const newUser = {email,displayName:name};
-
                 setUser(newUser);
                 //send name firebase after creation 
-                //save user
-                saveUser(email, name, 'POST');
+               // save user to the database
+               saveUser(email, name, 'POST');
                 updateProfile(auth.currentUser, {
                   displayName:name
                 }).then(() => {                  
@@ -64,8 +63,11 @@ const useFirebase =()=>{
       const googleSignIn =(location,history)=>{
           setIsLoading(true);
         signInWithPopup(auth, googleProvider)
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
             .then((result) => {
-                
+                const user = result.user;
+                saveUser(user.email, user.displayName, 'PUT');
                 setAuthError('');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
@@ -114,10 +116,10 @@ const useFirebase =()=>{
     }
 
 
+
       return {
           user,
           isLoading,
-          saveUser,
           registerUser,
           googleSignIn,
           authError,
