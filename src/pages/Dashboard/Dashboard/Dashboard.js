@@ -24,7 +24,8 @@ import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
-import MyOrder from '../MyOrders/MyOrders';
+import MyOrder from '../MyOrder/MyOrder';
+
 
 const drawerWidth = 200;
 
@@ -49,6 +50,7 @@ function Dashboard(props) {
           <Link style={{ textDecoration: 'none' }} to={`${url}/myOrder`}>
               <Button color="inherit">My Order</Button>
           </Link>
+         
       <Divider />
       <List>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -141,6 +143,7 @@ function Dashboard(props) {
               <Route path={`${path}/myOrder`}>
                   <MyOrder></MyOrder>
               </Route>
+              
        </Switch>
       </Box>
     </Box>

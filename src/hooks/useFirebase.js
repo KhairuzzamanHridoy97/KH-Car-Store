@@ -22,10 +22,11 @@ const useFirebase =()=>{
 
                 setUser(newUser);
                 //send name firebase after creation 
+                //save user
+                saveUser(email, name, 'POST');
                 updateProfile(auth.currentUser, {
                   displayName:name
-                }).then(() => {
-                  
+                }).then(() => {                  
                 }).catch((error) => {
                   
                 });
@@ -100,9 +101,23 @@ const useFirebase =()=>{
           .finally(()=>setIsLoading(false));
       };
 
+      const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    }
+
+
       return {
           user,
           isLoading,
+          saveUser,
           registerUser,
           googleSignIn,
           authError,

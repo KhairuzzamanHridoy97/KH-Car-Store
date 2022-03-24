@@ -1,12 +1,6 @@
-.review-section{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 20px;
-}
-.booking-text{
-    margin-top: 40px;
-    padding: 5px;
-}
-.item-part{
-    margin-top: 150px ;
+.purchase-form{
+    padding-top: 5px;
+    border: 1px solid rgb(155, 191, 197);
+    border-radius: 100px;
+    background-color: rgb(81, 250, 194);
 }
