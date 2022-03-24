@@ -3,6 +3,7 @@ import { Alert, Button, TextField } from '@mui/material';
 
 const MakeAdmin =()=>{
     const [email,setEmail] = useState('')
+    const [success,setSuccess]= useState(false);
 
     const handleOnBlur =e=>{
        
@@ -29,19 +30,22 @@ const MakeAdmin =()=>{
         }
     return (
         <div>
-            <h1>Make Admin</h1>
+             <h2>Make An Admin</h2>
             <form onSubmit={handleAdminSubmit}>
-                <TextField
-                    id='standard-basic' 
-                    label="Email"
-                    type='email'
-                    onBlur={handleOnBlur}
-                    variant='standard'
-                />
-                <Button variant="contained">Submit</Button>
-               
+            <TextField 
+            sx={{width:"50%"}}
+            id="standard-basic" 
+            label="Email"
+            type="email"
+            onBlur={handleOnBlur} 
+            variant="standard" 
+            />
+            <Button type='submit' variant='contained'> Make Admin </Button>
+
             </form>
+            {success && <Alert severity="success">Make admin successfully!</Alert>}
         </div>
+        
     )
 }
 

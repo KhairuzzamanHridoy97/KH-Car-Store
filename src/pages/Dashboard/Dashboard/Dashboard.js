@@ -15,8 +15,6 @@ import {
   useRouteMatch
 } from "react-router-dom";
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
@@ -26,14 +24,18 @@ import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MyOrder from '../MyOrder/MyOrder';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import useAuth from '../../../hooks/useAuth';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 
-const drawerWidth = 200;
+const drawerWidth = 150;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
+  const {admin}= useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -42,17 +44,30 @@ function Dashboard(props) {
   const drawer = (
     <div>
       <Toolbar />
-          <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
-              <Button color="inherit">Add Product</Button>
+
+          <Link style={{ textDecoration: 'none' }} to='/home'>
+              <Button color="inherit">Home</Button>
           </Link>
-          <Link style={{ textDecoration: 'none' }} to={`${url}/manageProduct`}>
-              <Button color="inherit">Manage Product</Button>
-          </Link>
+          {
+             admin &&  
+             <Box> 
+                <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
+                  <Button color="inherit">Add Product</Button>
+              </Link>
+              <Link style={{ textDecoration: 'none' }} to={`${url}/manageProduct`}>
+                  <Button color="inherit">Manage Product</Button>
+              </Link>
+              <Link style={{ textDecoration: 'none' }} to={`${url}/manageAllOrders`}>
+                  <Button color="inherit">Manage Orders</Button>
+              </Link>
+              <Link style={{ textDecoration: 'none' }} to={`${url}/makeAdmin`}>
+                  <Button color="inherit">Make Admin</Button>
+              </Link>
+            </Box>
+          }
+          
           <Link style={{ textDecoration: 'none' }} to={`${url}/myOrder`}>
               <Button color="inherit">My Order</Button>
-          </Link>
-          <Link style={{ textDecoration: 'none' }} to={`${url}/manageAllOrders`}>
-              <Button color="inherit">Manage Orders</Button>
           </Link>
          
       <Divider />
@@ -128,18 +143,21 @@ function Dashboard(props) {
         
         </Typography>
        <Switch>
-              <Route path={`${path}/addproduct`}>
+              <AdminRoute path={`${path}/addproduct`}>
                   <AddProduct></AddProduct>
-                </Route>
-              <Route path={`${path}/manageProduct`}>
+                </AdminRoute>
+              <AdminRoute path={`${path}/manageProduct`}>
                   <ManageProducts></ManageProducts>
-              </Route>
-              <Route path={`${path}/manageAllOrders`}>
+              </AdminRoute>
+              <AdminRoute path={`${path}/manageAllOrders`}>
                   <ManageAllOrders></ManageAllOrders>
-              </Route>
+              </AdminRoute>
               <Route path={`${path}/myOrder`}>
                   <MyOrder></MyOrder>
               </Route>
+              <AdminRoute path={`${path}/makeAdmin`}>
+                  <MakeAdmin></MakeAdmin>
+              </AdminRoute>
               
        </Switch>
       </Box>

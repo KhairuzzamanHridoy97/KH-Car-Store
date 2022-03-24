@@ -8,6 +8,7 @@ const useFirebase =()=>{
       const [user,setUser]= useState({});
       const [isLoading,setIsLoading]= useState(true);
       const [authError, setAuthError] = useState('');
+      const [admin, setAdmin] = useState(false);
 
       const auth = getAuth();
 
@@ -91,7 +92,13 @@ const useFirebase =()=>{
             setIsLoading(false)
           });
           return ()=> unsubscribe;
-      },[])
+      },[]);
+
+      useEffect(() => {
+        fetch(`https://salty-cliffs-58044.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
 
       const logout =()=>{
           setIsLoading(true);
@@ -113,7 +120,9 @@ const useFirebase =()=>{
             body: JSON.stringify(user)
         })
             .then()
-    }
+    };
+
+
 
 
 
@@ -122,6 +131,7 @@ const useFirebase =()=>{
           isLoading,
           registerUser,
           googleSignIn,
+          admin,
           authError,
           loginUser,
           logout,
