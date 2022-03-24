@@ -24,6 +24,7 @@ import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MyOrder from '../MyOrder/MyOrder';
 
 
@@ -49,6 +50,9 @@ function Dashboard(props) {
           </Link>
           <Link style={{ textDecoration: 'none' }} to={`${url}/myOrder`}>
               <Button color="inherit">My Order</Button>
+          </Link>
+          <Link style={{ textDecoration: 'none' }} to={`${url}/manageAllOrders`}>
+              <Button color="inherit">Manage Orders</Button>
           </Link>
          
       <Divider />
@@ -139,6 +143,9 @@ function Dashboard(props) {
                 </Route>
               <Route path={`${path}/manageProduct`}>
                   <ManageProducts></ManageProducts>
+              </Route>
+              <Route path={`${path}/manageAllOrders`}>
+                  <ManageAllOrders></ManageAllOrders>
               </Route>
               <Route path={`${path}/myOrder`}>
                   <MyOrder></MyOrder>

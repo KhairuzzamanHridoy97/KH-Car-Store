@@ -54,18 +54,3 @@ const ManageProducts = () => {
 };
 
 export default ManageProducts;
-
-        // <div>
-        // </div>
-
-
-
-
-
-{/* <h2>Manage Products</h2>
-{
-    products.map(product=> <div key={product._id}>
-        <h5>{product.title}</h5>
-        <button onClick={()=>handleDelete(product._id)} className='btn btn-danger'>Delete</button>
-    </div> )
-} */}
