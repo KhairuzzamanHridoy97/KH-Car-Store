@@ -47,43 +47,43 @@ const MyOrder =()=>{
             <h2>My Orders: {myOrders.length} </h2>
 
             <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 250 }} aria-label="Orders">
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Location</TableCell>
-            <TableCell align="right">Date</TableCell>
-            <TableCell align="right">Car Name</TableCell>
-            <TableCell align="right">Price</TableCell>
-            <TableCell align="right">Action</TableCell>
-            {/* <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {myOrders.map((myOrder) => (
-            <TableRow
-              key={myOrder._id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {myOrder.name}
-              </TableCell>
-              <TableCell align="right">{myOrder.email}</TableCell>
-              <TableCell align="right">{myOrder.location}</TableCell>
-              <TableCell align="right">{myOrder.date}</TableCell>
-              <TableCell align="right">{myOrder.title}</TableCell>
-              <TableCell align="right">{myOrder.price}</TableCell>
-              <TableCell align="right">
-                  <button onClick={() => handleDelete(myOrder?._id)} className="btn btn-danger">Cancel</button>
-              </TableCell>
-              {/* <TableCell align="right">{row.carbs}</TableCell> */}
-              {/* <TableCell align="right">{row.protein}</TableCell> */}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+            <Table sx={{ minWidth: 250 }} aria-label="Orders">
+                <TableHead>
+                <TableRow>
+                    <TableCell>Name</TableCell>
+                    <TableCell align="right">Email</TableCell>
+                    <TableCell align="right">Location</TableCell>
+                    <TableCell align="right">Date</TableCell>
+                    <TableCell align="right">Car Name</TableCell>
+                    <TableCell align="right">Price</TableCell>
+                    <TableCell align="right">Action</TableCell>
+                    {/* <TableCell align="right">Protein&nbsp;(g)</TableCell> */}
+                </TableRow>
+                </TableHead>
+                <TableBody>
+                {myOrders.map((myOrder) => (
+                    <TableRow
+                    key={myOrder._id}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                    <TableCell component="th" scope="row">
+                        {myOrder.name}
+                    </TableCell>
+                    <TableCell align="right">{myOrder.email}</TableCell>
+                    <TableCell align="right">{myOrder.location}</TableCell>
+                    <TableCell align="right">{myOrder.date}</TableCell>
+                    <TableCell align="right">{myOrder.title}</TableCell>
+                    <TableCell align="right">{myOrder.price}</TableCell>
+                    <TableCell align="right">
+                        <button onClick={() => handleDelete(myOrder?._id)} className="btn btn-danger">Cancel</button>
+                    </TableCell>
+                    {/* <TableCell align="right">{row.carbs}</TableCell> */}
+                    {/* <TableCell align="right">{row.protein}</TableCell> */}
+                    </TableRow>
+                ))}
+                </TableBody>
+            </Table>
+            </TableContainer>
         </div>
     )
 }
