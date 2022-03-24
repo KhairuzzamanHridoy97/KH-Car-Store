@@ -17,7 +17,27 @@ const ManageAllOrders = () => {
         .then(data=>setAllOrders(data))
     },[]);
 
-    
+    // deleteOrder
+
+    const handleDeleteAllOrder = (id) => {
+        console.log(id);
+        const proceed = window.confirm("Are you sure, you want to delete?");
+        if (proceed) {
+            fetch(`http://localhost:5000/deleteOrder/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert("Deleted Successfully");
+                        const remainingOrders = allOrders?.filter(allOrder => allOrder._id !== id);
+                        setAllOrders(remainingOrders);
+                    }
+                });
+            console.log(id);
+        }
+    };
 
     return (
         <div>
@@ -49,11 +69,9 @@ const ManageAllOrders = () => {
               <TableCell align="right">{allOrder.title}</TableCell>
               <TableCell align="right">{allOrder.price}</TableCell>
               <TableCell align="right">
-                  <button className="btn btn-danger">Delete</button>
+                  <button onClick={()=>handleDeleteAllOrder(allOrder._id)} className="btn btn-danger">Delete</button>
               </TableCell>
-              {/* <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell> */}
+             
             </TableRow>
           ))}
         </TableBody>
