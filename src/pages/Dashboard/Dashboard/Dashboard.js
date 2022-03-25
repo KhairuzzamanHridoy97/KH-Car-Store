@@ -158,9 +158,9 @@ function Dashboard(props) {
          <Route exact path={path}>
             <DashboardHome></DashboardHome>
         </Route>
-              <Route path={`${path}/addproduct`}>
+              <AdminRoute path={`${path}/addproduct`}>
                   <AddProduct></AddProduct>
-                </Route>
+                </AdminRoute>
               <AdminRoute path={`${path}/manageProduct`}>
                   <ManageProducts></ManageProducts>
               </AdminRoute>

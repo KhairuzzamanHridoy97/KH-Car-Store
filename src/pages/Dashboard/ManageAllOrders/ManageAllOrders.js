@@ -12,7 +12,7 @@ const ManageAllOrders = () => {
     const [allOrders,setAllOrders]= useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/allOrders')
+        fetch('https://secure-beach-41579.herokuapp.com/allOrders')
         .then(res=>res.json())
         .then(data=>setAllOrders(data))
     },[]);
@@ -22,7 +22,7 @@ const ManageAllOrders = () => {
         console.log(id);
         const proceed = window.confirm("Are you sure, you want to delete?");
         if (proceed) {
-            fetch(`http://localhost:5000/deleteOrder/${id}`, {
+            fetch(`https://secure-beach-41579.herokuapp.com/deleteOrder/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

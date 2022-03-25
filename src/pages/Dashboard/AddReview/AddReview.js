@@ -9,7 +9,7 @@ const AddReview = () => {
 
     const onSubmit = data => {
         data.email = user?.email;
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://secure-beach-41579.herokuapp.com/addReview', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data),

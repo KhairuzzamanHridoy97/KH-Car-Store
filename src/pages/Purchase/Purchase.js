@@ -22,13 +22,13 @@ const Purchase = () => {
     const { register, handleSubmit, watch,reset, formState: { errors }  } = useForm();
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${productId}`)
+        fetch(`https://secure-beach-41579.herokuapp.com/products/${productId}`)
         .then(res=>res.json())
         .then(data=>setProduct(data))
     },[]);
     
     const onSubmit = data =>{
-        fetch('http://localhost:5000/orders',{
+        fetch('https://secure-beach-41579.herokuapp.com/orders',{
             method:'POST',
             headers: { 
                 'content-type': 'application/json' 
@@ -48,6 +48,7 @@ const Purchase = () => {
         < Container>
             <Grid container spacing={2}>
             <Grid item xs={12} md={6} sx={{mt:4}}>
+                h2
                 <Card sx={{ minWidth: "100%" }}>
                 <CardMedia
                 component="img"
