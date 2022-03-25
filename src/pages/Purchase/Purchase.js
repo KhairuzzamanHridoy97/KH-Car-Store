@@ -48,7 +48,6 @@ const Purchase = () => {
         < Container>
             <Grid container spacing={2}>
             <Grid item xs={12} md={6} sx={{mt:4}}>
-                h2
                 <Card sx={{ minWidth: "100%" }}>
                 <CardMedia
                 component="img"
