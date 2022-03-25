@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Grid } from '@mui/material';
-import MyOrder from '../MyOrder/MyOrder';
+import AddReview from '../AddReview/AddReview';
+
 
 const DashboardHome = () => {
     return (
         <Grid container spacing={2}>
             <Grid item xs={12} md={12}>
-                <MyOrder></MyOrder>
+                <AddReview></AddReview>
             </Grid>
         </Grid>
     );

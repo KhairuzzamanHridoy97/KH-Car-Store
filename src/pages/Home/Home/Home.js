@@ -4,6 +4,7 @@ import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 import Banner from '../Banner/Banner';
 import LatestOffers from '../LatestOffers/LatestOffers';
+import ShowReview from '../ShowReview/ShowReview';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <Navigation></Navigation>
             <Banner></Banner>
             <Products></Products>
+            <ShowReview></ShowReview>
             <LatestOffers></LatestOffers>
             <Footer></Footer>
         </div>

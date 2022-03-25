@@ -63,14 +63,19 @@ function Dashboard(props) {
                   <Button color="inherit">Make Admin</Button>
               </Link>
             </Box>
-          }
-          
-          <Link style={{ textDecoration: 'none' }} to={`${url}/myOrder`}>
+           }
+          {
+            !admin && <Box>
+                <Link style={{ textDecoration: 'none' }} to={`${url}/myOrder`}>
               <Button color="inherit">My Order</Button>
           </Link>
           <Link style={{ textDecoration: 'none' }} to={`${url}/addReview`}>
               <Button color="inherit">Add Review</Button>
-          </Link>    
+          </Link>
+            </Box>
+            
+          }
+              
           
          
       <Divider />
@@ -149,21 +154,23 @@ function Dashboard(props) {
          <Route exact path={path}>
             <DashboardHome></DashboardHome>
         </Route>
-              <AdminRoute path={`${path}/addproduct`}>
+              <Route path={`${path}/addproduct`}>
                   <AddProduct></AddProduct>
-                </AdminRoute>
+                </Route>
               <AdminRoute path={`${path}/manageProduct`}>
                   <ManageProducts></ManageProducts>
               </AdminRoute>
               <AdminRoute path={`${path}/manageAllOrders`}>
                   <ManageAllOrders></ManageAllOrders>
               </AdminRoute>
+
               <Route path={`${path}/myOrder`}>
                   <MyOrder></MyOrder>
               </Route>
               <Route path={`${path}/addReview`}>
                   <AddReview></AddReview>
               </Route>
+
               <AdminRoute path={`${path}/makeAdmin`}>
                   <MakeAdmin></MakeAdmin>
               </AdminRoute>
