@@ -25,6 +25,7 @@ import useAuth from '../../../hooks/useAuth';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import AddReview from '../AddReview/AddReview';
+import Payment from '../Payment/Payment';
 
 
 
@@ -71,6 +72,9 @@ function Dashboard(props) {
           </Link>
           <Link style={{ textDecoration: 'none' }} to={`${url}/addReview`}>
               <Button color="inherit">Add Review</Button>
+          </Link>
+          <Link style={{ textDecoration: 'none' }} to={`${url}/payment`}>
+              <Button color="inherit">Payment</Button>
           </Link>
             </Box>
             
@@ -169,6 +173,9 @@ function Dashboard(props) {
               </Route>
               <Route path={`${path}/addReview`}>
                   <AddReview></AddReview>
+              </Route>
+              <Route path={`${path}/payment`}>
+                  <Payment></Payment>
               </Route>
 
               <AdminRoute path={`${path}/makeAdmin`}>
