@@ -35,6 +35,7 @@ const ManageProducts = () => {
                         <th>Products Name</th>
                         <th>Price</th>
                         <th>Image</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 {products?.map((product, index) => (

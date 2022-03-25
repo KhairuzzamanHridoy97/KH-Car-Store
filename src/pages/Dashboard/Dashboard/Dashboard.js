@@ -6,16 +6,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
 import {
   Switch,
   Route,
   Link,
   useRouteMatch
 } from "react-router-dom";
-import ListItem from '@mui/material/ListItem';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -26,7 +22,10 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import MyOrder from '../MyOrder/MyOrder';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useAuth from '../../../hooks/useAuth';
+import DashboardHome from '../DashboardHome/DashboardHome';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import AddReview from '../AddReview/AddReview';
+
 
 
 const drawerWidth = 150;
@@ -49,8 +48,8 @@ function Dashboard(props) {
               <Button color="inherit">Home</Button>
           </Link>
           {
-             admin &&  
-             <Box> 
+              admin &&  
+              <Box>  
                 <Link style={{ textDecoration: 'none' }} to={`${url}/addProduct`}>
                   <Button color="inherit">Add Product</Button>
               </Link>
@@ -69,6 +68,10 @@ function Dashboard(props) {
           <Link style={{ textDecoration: 'none' }} to={`${url}/myOrder`}>
               <Button color="inherit">My Order</Button>
           </Link>
+          <Link style={{ textDecoration: 'none' }} to={`${url}/addReview`}>
+              <Button color="inherit">Add Review</Button>
+          </Link>    
+          
          
       <Divider />
       <Divider />
@@ -143,6 +146,9 @@ function Dashboard(props) {
         
         </Typography>
        <Switch>
+         <Route exact path={path}>
+            <DashboardHome></DashboardHome>
+        </Route>
               <AdminRoute path={`${path}/addproduct`}>
                   <AddProduct></AddProduct>
                 </AdminRoute>
@@ -154,6 +160,9 @@ function Dashboard(props) {
               </AdminRoute>
               <Route path={`${path}/myOrder`}>
                   <MyOrder></MyOrder>
+              </Route>
+              <Route path={`${path}/addReview`}>
+                  <AddReview></AddReview>
               </Route>
               <AdminRoute path={`${path}/makeAdmin`}>
                   <MakeAdmin></MakeAdmin>
